@@ -13,7 +13,8 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        dephygaitcycle.cpp
+        dephygaitcycle.cpp \
+    gaitcycle.cpp
 
 HEADERS  += dephygaitcycle.h \
     gaitcycle.h

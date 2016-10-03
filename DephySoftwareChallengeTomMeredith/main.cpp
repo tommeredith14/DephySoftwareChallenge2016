@@ -255,10 +255,9 @@ int main(int argc, char *argv[])
         ///////Check Toe Off//////
         if (data.time - lastToeOff > MINIMUM_CYCLE_WAIT)
         {
-            //accelXcondition = (data.time - lastTimeXAccelLow) < HEEL_OFF_WANTED_TRAIT_THRESHHOLD ;
             accelZcondition = (data.time - lastTimeZAccelHigh) < TOE_OFF_THRESHHOLD ;
             gyroYcondition = YGyroIsLow && (data.time - lastTimeYGyroHigh) < TOE_OFF_THRESHHOLD;
-            if (/*accelXcondition && */accelZcondition && gyroYcondition)
+            if (accelZcondition && gyroYcondition)
             {
                 cout << "Toe off at time = " << data.time << endl;
                 p.setPen(QPen(Qt::black, 10, Qt::SolidLine, Qt::RoundCap));
@@ -269,10 +268,9 @@ int main(int argc, char *argv[])
         //////Check Mid Swing/////
         if (data.time - lastMidSwing > MINIMUM_CYCLE_WAIT)
         {
-        //	accelXcondition = (data.time - lastTimeXAccelLow) < HEEL_OFF_WANTED_TRAIT_THRESHHOLD && (data.time - lastTimeXAccelHigh) > HEEL_OFF_UNWANTED_TRAIT_MIN_THRESHHOLD;
             accelZcondition = (ZAccelIsModerateLow && (data.time - lastTimeZAccelModerateHigh) < MID_SWING_WANTED_TRAIT_MAX_THRESHHOLD && (data.time - lastTimeZAccelHigh) > MID_SWING_UNWANTED_TRAIT_MIN_THRESHHOLD);
             gyroYcondition = YGyroIsLow && (data.time - lastTimeYGyroHigh) > MID_SWING_UNWANTED_TRAIT_MIN_THRESHHOLD;
-            if (/*accelXcondition &&*/ accelZcondition && gyroYcondition)
+            if (accelZcondition && gyroYcondition)
             {
                 cout << "Mid Swing at time = " << data.time << endl;
                 p.setPen(QPen(Qt::black, 10, Qt::SolidLine, Qt::RoundCap));
